@@ -4,7 +4,7 @@ import { useProducts } from "../contex/cart-context";
 const Landing = () => {
   const { products } = useProducts();
   return (
-    <div className="">
+    <div className="self-start">
       <SearchBar />
       <div className="flex flex-wrap justify-center gap-6 p-8">
         {products &&

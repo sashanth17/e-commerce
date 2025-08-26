@@ -8,20 +8,29 @@ import { Navbar } from "./components/navbar";
 import "./index.css"; // or './main.css'
 import ProductDetail from "./pages/product-detail";
 import ProductCard from "./components/HorizontalCard/card";
+import Login from "./pages/AuthLogin";
+import { AuthProvider } from "./contex/auth-context";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
       <ProductProvider>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="detail-view/:pid" element={<ProductDetail />} />
-          <Route path="horizontal-view" element={<ProductCard />} />
-        </Routes>
-        <div className="relative size-32 ...">
-          <div className="absolute inset-x-0 bottom-0 h-16 ...">the end</div>
-        </div>
+        <AuthProvider>
+          <div className="flex flex-col min-h-screen">
+            {/* Navbar stays on top */}
+            <Navbar />
+
+            {/* Main content grows and centers */}
+            <main className="flex flex-grow justify-center items-center bg-indigo-100">
+              <Routes>
+                <Route path="/" element={<Landing />} />
+                <Route path="/cart" element={<Cart />} />
+                <Route path="detail-view/:pid" element={<ProductDetail />} />
+                <Route path="horizontal-view" element={<ProductCard />} />
+                <Route path="/auth/login" element={<Login />} />
+              </Routes>
+            </main>
+          </div>
+        </AuthProvider>
       </ProductProvider>
     </BrowserRouter>
   </StrictMode>

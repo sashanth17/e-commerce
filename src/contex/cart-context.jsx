@@ -22,13 +22,15 @@ const ProductProvider = ({ children }) => {
   const [Cart, CartDispatch] = useReducer(CartReducer, []);
   const [data, setData] = useState([]);
   const [products, setProducts] = useState();
-  const [categoryId, setCategoriesId] = useState(0);
+  const [categoryId, setCategoriesId] = useState({ id: 0 });
   const isInCart = (id) => {
     return Cart.some((item) => item.id === id);
   };
   useEffect(() => {
     axios
-      .get(`https://api.escuelajs.co/api/v1/products?categoryId=${categoryId}`)
+      .get(
+        `https://api.escuelajs.co/api/v1/products?categoryId=${categoryId.id}`
+      )
       .then((response) => {
         setData(response.data);
         setProducts(response.data);
