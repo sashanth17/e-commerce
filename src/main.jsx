@@ -7,7 +7,6 @@ import Cart from "./pages/cart";
 import { Navbar } from "./components/navbar";
 import "./index.css"; // or './main.css'
 import ProductDetail from "./pages/product-detail";
-import ProductCard from "./components/HorizontalCard/card";
 import Login from "./pages/AuthLogin";
 import { AuthProvider } from "./contex/auth-context";
 createRoot(document.getElementById("root")).render(
@@ -20,12 +19,11 @@ createRoot(document.getElementById("root")).render(
             <Navbar />
 
             {/* Main content grows and centers */}
-            <main className="flex flex-grow justify-center items-center bg-indigo-100">
+            <main className="flex flex-grow justify-center items-center ">
               <Routes>
                 <Route path="/" element={<Landing />} />
                 <Route path="/cart" element={<Cart />} />
                 <Route path="detail-view/:pid" element={<ProductDetail />} />
-                <Route path="horizontal-view" element={<ProductCard />} />
                 <Route path="/auth/login" element={<Login />} />
               </Routes>
             </main>

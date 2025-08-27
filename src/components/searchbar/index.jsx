@@ -50,7 +50,7 @@ export default function SearchBar() {
         {Categories &&
           Categories.map((category) => (
             <h1
-              className="m-2 cursor-pointer  bg-indigo-200 border-2 border-gray-300"
+              className="rounded-md m-2 cursor-pointer  bg-indigo-200 border-2 border-gray-300"
               onClick={() => CategoryClick(category.id)}
               key={category.id}
             >

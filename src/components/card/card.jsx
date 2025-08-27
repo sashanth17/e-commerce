@@ -3,7 +3,7 @@ import { useProducts } from "../../contex/cart-context";
 
 export default function TiltedCard({ product }) {
   const { images, title, price } = product;
-  const { Cart, CartDispatch, isInCart } = useProducts();
+  const { CartDispatch, isInCart } = useProducts();
   const navigate = useNavigate();
   const addToCart = () => {
     CartDispatch({ type: "ADD-TO-CART", payload: product });

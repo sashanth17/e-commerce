@@ -1,7 +1,6 @@
 import { useReducer } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import LoginReducer from "../reducers/LoginReducer";
 import { useAuth } from "../contex/auth-context";
 
 const Login = () => {
@@ -38,10 +37,10 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-indigo-100">
+    <div className="flex justify-center items-center h-screen ">
       <form
         onSubmit={onLoginClick}
-        className="bg-white p-6 rounded-2xl shadow-lg w-80 flex flex-col gap-4"
+        className="bg-white p-6 rounded-2xl shadow-lg w-80 flex flex-col gap-4 border-2 border-indigo-500"
       >
         <h1 className="text-2xl font-bold text-center text-indigo-600">
           Login
