@@ -1,8 +1,14 @@
+import { useNavigate } from "react-router-dom";
 import { useProducts } from "../../contex/cart-context";
 const HorizontalCard = ({ product }) => {
   const { CartDispatch } = useProducts();
+  const navigate = useNavigate();
   const removeFromCart = () => {
     CartDispatch({ type: "REMOVE-FROM-CART", id: product.id });
+  };
+  const detailViewClick = () => {
+    console.log("hi");
+    navigate(`/detail-view/${product.id}`);
   };
   return (
     <div className="flex items-center justify-between bg-white border rounded-xl shadow-sm p-4 hover:shadow-md transition w-full">
@@ -14,7 +20,10 @@ const HorizontalCard = ({ product }) => {
           className="w-20 h-20 object-cover rounded-lg"
         />
         <div>
-          <h3 className="text-lg font-semibold text-gray-800 line-clamp-1">
+          <h3
+            onClick={detailViewClick}
+            className="text-lg font-semibold text-gray-800 line-clamp-1 cursor-pointer"
+          >
             {product.title}
           </h3>
           <p className="text-sm text-gray-500">${product.price}</p>
